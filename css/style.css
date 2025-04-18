@@ -1,0 +1,199 @@
+:root {
+    --color-bg-light: #ffffff;
+    --color-text: #333;
+    --color-muted: #444;
+    --color-border: #ddd;
+    --color-primary: #0077cc;
+    --color-primary-hover: #005999;
+    --color-accent: #1c424c;
+    --color-secondary: #4a6258;
+    /* gray-green */
+}
+
+/* ========== Reset & Base Styles ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: var(--color-text);
+}
+
+/* ========== Layout ========== */
+.top-border {
+    height: 20px;
+    background-color: var(--color-accent);
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* ========== Sidebar ========== */
+.sidebar {
+    width: 280px;
+    padding-right: 2rem;
+    border-right: 1px solid var(--color-border);
+    flex-shrink: 0;
+}
+
+.sidebar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 1rem auto;
+}
+
+.sidebar h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #000;
+}
+
+.sidebar h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #000;
+}
+
+.sidebar ul {
+    padding-left: 1rem;
+}
+
+.sidebar ul li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar .profile {
+    text-align: center;
+    color: var(--color-secondary);
+}
+
+.sidebar .contact a {
+    display: inline-block;
+    margin-bottom: 0.7rem;
+    text-align: left;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.sidebar section {
+    border: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+/* ========== Skills Progress Bars ========== */
+.skill {
+    margin-bottom: 0.5rem;
+}
+
+.skill span {
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.level {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.level span {
+    width: 12px;
+    height: 12px;
+    border: 1px solid #000;
+    display: inline-block;
+}
+
+.level .filled {
+    background-color: var(--color-accent);
+}
+
+/* ========== Main Content ========== */
+.content {
+    flex: 1;
+}
+
+section {
+    padding: 1rem 0;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #000;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.5rem;
+}
+
+section ul {
+    padding-left: 1.5rem;
+    margin: 1.2rem 0;
+}
+
+section ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* ========== Education ========== */
+#education article {
+    margin-bottom: 1.2rem;
+}
+
+/* ========== Links & Footer ========== */
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-primary-hover);
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: 2px dashed var(--color-primary);
+    outline-offset: 2px;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: var(--color-accent);
+}
+
+footer a {
+    margin: 0 0.5rem;
+    color: #fff;
+}
+
+footer a:hover {
+    color: var(--color-primary-hover);
+}
+
+footer i {
+    margin-right: 0.5rem;
+}
+
+article>p {
+    color: var(--color-secondary);
+    font-style: italic;
+    font-size: 0.95rem;
+}
