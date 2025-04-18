@@ -15,93 +15,20 @@
 
     <div class="container">
       <!-- Sidebar -->
-      <aside
-        class="sidebar"
-        aria-label="Sidebar with profile, skills, and contact info"
-      >
-        <section class="profile">
+      <aside class="sidebar">
+        <div class="profile">
           <img
             src="img/profile.jpg"
-            alt="Portrait of John Doe"
+            alt="Profile picture"
             width="120"
             height="120"
           />
           <h1>John Doe</h1>
           <p>Developer</p>
-        </section>
+        </div>
 
-        <section class="skills">
-          <h2>Skills</h2>
-
-          <div class="skill">
-            <span>Swift</span>
-            <div class="level">
-              <span class="filled"></span>
-              <span class="filled"></span>
-              <span class="filled"></span>
-              <span class="filled"></span>
-              <span class="filled"></span>
-            </div>
-          </div>
-
-          <div class="skill">
-            <span>C#</span>
-            <div class="level">
-              <span class="filled"></span>
-              <span class="filled"></span>
-              <span class="filled"></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-
-          <div class="skill">
-            <span>HTML, CSS, JavaScript</span>
-            <div class="level">
-              <span class="filled"></span>
-              <span class="filled"></span>
-              <span class="filled"></span>
-              <span class="filled"></span>
-              <span></span>
-            </div>
-          </div>
-
-          <div class="skill">
-            <span>Git, GitHub</span>
-            <div class="level">
-              <span class="filled"></span>
-              <span class="filled"></span>
-              <span class="filled"></span>
-              <span class="filled"></span>
-              <span class="filled"></span>
-            </div>
-          </div>
-
-          <div class="skill">
-            <span>React (learning in progress)</span>
-            <div class="level">
-              <span class="filled"></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-        </section>
-
-        <section class="contact">
-          <h2>Contact</h2>
-          <div>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-github"></i> GitHub
-            </a>
-          </div>
-          <div>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-          </div>
-        </section>
+        <!-- Desktop only: shared content via fetch -->
+        <div id="sidebar-desktop" class="desktop-only"></div>
       </aside>
 
       <!-- Main Content -->
@@ -182,9 +109,32 @@
           </article>
         </section>
       </main>
+      <!-- Mobile only: shared content via fetch -->
+      <div id="sidebar-mobile" class="mobile-only"></div>
     </div>
+
     <footer>
       <p>&copy; 2025 John Doe</p>
     </footer>
+
+    <!-- Fetch sidebar partial -->
+    <script>
+      async function loadSidebar(targetId) {
+        const container = document.getElementById(targetId);
+        if (container) {
+          try {
+            const response = await fetch("partials/sidebar.html");
+            if (!response.ok) throw new Error("Fetch failed");
+            const html = await response.text();
+            container.innerHTML = html;
+          } catch (err) {
+            console.error("Failed to load sidebar content:", err);
+          }
+        }
+      }
+
+      loadSidebar("sidebar-desktop");
+      loadSidebar("sidebar-mobile");
+    </script>
   </body>
 </html>

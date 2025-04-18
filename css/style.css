@@ -6,8 +6,9 @@
     --color-primary: #0077cc;
     --color-primary-hover: #005999;
     --color-accent: #1c424c;
-    --color-secondary: #4a6258;
     /* gray-green */
+    --color-secondary: #4a6258;
+
 }
 
 /* ========== Reset & Base Styles ========== */
@@ -33,10 +34,12 @@ body {
 .container {
     display: flex;
     flex-direction: row;
+    /* Default for desktop */
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+    flex-wrap: wrap;
 }
 
 /* ========== Sidebar ========== */
@@ -45,6 +48,11 @@ body {
     padding-right: 2rem;
     border-right: 1px solid var(--color-border);
     flex-shrink: 0;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar img {
@@ -78,7 +86,7 @@ body {
 
 .sidebar .profile {
     text-align: center;
-    color: var(--color-secondary);
+    color: var(--color-accent);
 }
 
 .sidebar .contact a {
@@ -193,7 +201,65 @@ footer i {
 }
 
 article>p {
-    color: var(--color-secondary);
+    color: var(--color-accent);
     font-style: italic;
     font-size: 0.95rem;
+}
+
+/* ========== Responsive (Mobile) ========== */
+.desktop-only {
+    display: block;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 0rem;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding-right: 0;
+        border: none;
+        margin-bottom: 2rem;
+    }
+
+    .sidebar img {
+        margin: 0 auto 1rem auto;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    section {
+        padding: 1rem 0;
+    }
+
+    footer {
+        font-size: 0.8rem;
+        padding: 1rem 0;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+
+    .contact a {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        text-align: left;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
 }
