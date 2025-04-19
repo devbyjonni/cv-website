@@ -3,23 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CV Website</title>
+
+    <title>John Doe – Frontend Developer</title>
+    <meta
+      name="description"
+      content="John Doe is a frontend developer skilled in HTML, CSS, JavaScript, and React. Explore his CV and portfolio."
+    />
+
     <link rel="stylesheet" href="css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
   </head>
-  <body>
-    <div class="top-border"></div>
 
-    <div class="container">
+  <body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="top-border"></header>
+
+    <main id="main-content" class="container">
       <!-- Sidebar -->
-      <aside class="sidebar">
+      <aside class="sidebar" aria-label="Sidebar with profile and contact info">
         <div class="profile">
           <img
             src="img/profile.jpg"
-            alt="Profile picture"
+            alt="Portrait of John Doe, frontend developer"
             width="120"
             height="120"
           />
@@ -32,7 +42,7 @@
       </aside>
 
       <!-- Main Content -->
-      <main class="content">
+      <div class="content">
         <section id="profile">
           <h2>Profile</h2>
           <p>
@@ -51,7 +61,7 @@
 
           <article>
             <h3>Frontend Intern – Company A</h3>
-            <p>June 2023 – August 2024</p>
+            <p class="date">June 2023 – August 2024</p>
             <ul>
               <li>Worked on responsive UI components using HTML and CSS</li>
               <li>Assisted in website accessibility improvements</li>
@@ -60,7 +70,7 @@
 
           <article>
             <h3>Junior Developer – Company B</h3>
-            <p>September 2024 – Present</p>
+            <p class="date">September 2024 – Present</p>
             <ul>
               <li>Building and maintaining frontend features</li>
               <li>Collaborating with designers and backend developers</li>
@@ -69,7 +79,7 @@
 
           <article>
             <h3>Freelance Web Developer</h3>
-            <p>March 2023 – August 2023</p>
+            <p class="date">March 2023 – August 2023</p>
             <ul>
               <li>Developed landing pages and small business websites</li>
               <li>Customized WordPress themes and plugins</li>
@@ -78,7 +88,7 @@
 
           <article>
             <h3>Open Source Contributor</h3>
-            <p>Ongoing</p>
+            <p class="date">Ongoing</p>
             <ul>
               <li>
                 Contributed bug fixes and documentation to frontend libraries
@@ -95,23 +105,30 @@
 
           <article>
             <h3>B.Sc. in Computer Science</h3>
-            <p>University XYZ, 2020 – 2023</p>
+            <p class="date">University XYZ, 2020 – 2023</p>
           </article>
 
           <article>
             <h3>Exchange Semester – Web Technologies</h3>
-            <p>Technical University of Berlin, Spring 2022</p>
+            <p class="date">Technical University of Berlin, Spring 2022</p>
           </article>
 
           <article>
             <h3>Diploma in Frontend Development</h3>
-            <p>Online Program, Codecademy / FreeCodeCamp, 2019 – 2020</p>
+            <p class="date">
+              Online Program, Codecademy / FreeCodeCamp, 2019 – 2020
+            </p>
           </article>
         </section>
-      </main>
-      <!-- Mobile only: shared content via fetch -->
-      <div id="sidebar-mobile" class="mobile-only"></div>
-    </div>
+
+        <!-- Mobile only: shared content via fetch -->
+        <div
+          id="sidebar-mobile"
+          class="mobile-only"
+          aria-label="Mobile contact and skills"
+        ></div>
+      </div>
+    </main>
 
     <footer>
       <p>&copy; 2025 John Doe</p>
