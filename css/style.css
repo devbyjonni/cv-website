@@ -1,14 +1,34 @@
 :root {
-    --color-bg-light: #ffffff;
-    --color-text: #333;
-    --color-muted: #444;
-    --color-border: #ddd;
-    --color-primary: #0077cc;
-    --color-primary-hover: #005999;
-    --color-accent: #1c424c;
-    /* gray-green */
-    --color-secondary: #4a6258;
+    --color-bg: #ffffff;
+    --color-fg: #333333;
+    --color-muted: #444444;
+    --color-border: #dddddd;
 
+    --color-primary: #444444;
+    --color-primary-hover: #4f8895;
+
+    --color-accent: #1c424c;
+    --color-accent-secondary: #4f8895;
+
+    --color-fg-dark: #cccccc;
+}
+
+/* ========== Base Link Styles ========== */
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+    color: var(--color-primary-hover);
+    text-decoration: underline;
+}
+
+a:focus-visible {
+    outline: 2px dashed var(--color-primary);
+    outline-offset: 2px;
 }
 
 /* ========== Reset & Base Styles ========== */
@@ -21,8 +41,23 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f9f9f9;
-    color: var(--color-text);
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+}
+
+/* ========== Accessibility ========== */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-accent);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
 }
 
 /* ========== Layout ========== */
@@ -34,7 +69,6 @@ body {
 .container {
     display: flex;
     flex-direction: row;
-    /* Default for desktop */
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -44,15 +78,12 @@ body {
 
 /* ========== Sidebar ========== */
 .sidebar {
+    display: flex;
+    flex-direction: column;
     width: 280px;
     padding-right: 2rem;
     border-right: 1px solid var(--color-border);
     flex-shrink: 0;
-}
-
-.sidebar {
-    display: flex;
-    flex-direction: column;
 }
 
 .sidebar img {
@@ -67,21 +98,13 @@ body {
     font-size: 1.5rem;
     text-align: center;
     margin-bottom: 0.5rem;
-    color: #000;
+    color: var(--color-fg);
 }
 
 .sidebar h2 {
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
-    color: #000;
-}
-
-.sidebar ul {
-    padding-left: 1rem;
-}
-
-.sidebar ul li {
-    margin-bottom: 0.5rem;
+    color: var(--color-fg);
 }
 
 .sidebar .profile {
@@ -97,10 +120,19 @@ body {
     text-decoration: underline;
 }
 
+/* ========== Sidebar List ========== */
 .sidebar section {
     border: none;
     padding-top: 0;
     margin-top: 0;
+}
+
+.sidebar ul {
+    padding-left: 1rem;
+}
+
+.sidebar ul li {
+    margin-bottom: 0.5rem;
 }
 
 /* ========== Skills Progress Bars ========== */
@@ -122,7 +154,7 @@ body {
 .level span {
     width: 12px;
     height: 12px;
-    border: 1px solid #000;
+    border: 1px solid var(--color-fg);
     display: inline-block;
 }
 
@@ -142,7 +174,7 @@ section {
 section h2 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #000;
+    color: var(--color-fg);
     border-bottom: 1px solid var(--color-border);
     padding-bottom: 0.5rem;
 }
@@ -156,27 +188,18 @@ section ul li {
     margin-bottom: 0.5rem;
 }
 
+.date {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
 /* ========== Education ========== */
 #education article {
     margin-bottom: 1.2rem;
 }
 
-/* ========== Links & Footer ========== */
-a {
-    color: #000;
-    text-decoration: none;
-}
-
-a:hover {
-    color: var(--color-primary-hover);
-    text-decoration: underline;
-}
-
-a:focus {
-    outline: 2px dashed var(--color-primary);
-    outline-offset: 2px;
-}
-
+/* ========== Footer ========== */
 footer {
     text-align: center;
     padding: 1.5rem 0;
@@ -200,12 +223,6 @@ footer i {
     margin-right: 0.5rem;
 }
 
-article>p {
-    color: var(--color-accent);
-    font-style: italic;
-    font-size: 0.95rem;
-}
-
 /* ========== Responsive (Mobile) ========== */
 .desktop-only {
     display: block;
@@ -219,7 +236,7 @@ article>p {
     .container {
         flex-direction: column;
         padding: 1rem;
-        gap: 0rem;
+        gap: 0;
     }
 
     .sidebar {
@@ -261,5 +278,74 @@ article>p {
         font-weight: 500;
         text-decoration: underline;
     }
+}
 
+/* ========== Dark Mode ========== */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1e1e1e;
+        color: var(--color-fg-dark);
+    }
+
+    footer {
+        background-color: var(--color-accent);
+    }
+
+    .sidebar,
+    section {
+        border-color: #444;
+    }
+
+    .sidebar h1,
+    .sidebar h2,
+    section h2 {
+        color: #fff;
+        border-color: #444;
+    }
+
+    a {
+        color: #fff;
+    }
+
+    a:hover {
+        color: var(--color-primary-hover);
+    }
+
+    footer {
+        border-top: 1px solid #ccc;
+        color: #aaa;
+    }
+
+    footer a {
+        color: var(--color-fg-dark);
+    }
+
+    footer a:hover {
+        color: #80cfff;
+    }
+
+    .skip-link {
+        background: #222;
+        color: var(--color-fg-dark);
+    }
+
+    .date {
+        color: var(--color-accent-secondary);
+    }
+
+    .sidebar .contact a {
+        /* Optional dark override */
+    }
+
+    .level .filled {
+        background-color: var(--color-accent-secondary);
+    }
+
+    .level span {
+        border: 1px solid var(--color-accent-secondary);
+    }
+
+    .profile p {
+        color: var(--color-fg-dark);
+    }
 }
